@@ -12,12 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
-Route::get('/users', function () {
-    return 'usuarios';
-});
+Route::resource('/users', 'UsersController');
+Route::resource('/productos', 'ProductosController');
+Route::resource('/detalles', 'DetallesController');
+Route::resource('/proveedor', 'ProveedorController');
+
 
 Route::get('/users/{id}', function ($id) {
     return 'usuarios/'.$id;

@@ -2,7 +2,7 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Producto::class, function (Faker $faker) {
+$factory->define(App\Models\Producto::class, function (Faker $faker) {
     return [
         'nombre' => $faker->name,
         'stock' => $faker->randomDigit,
@@ -10,6 +10,8 @@ $factory->define(App\Producto::class, function (Faker $faker) {
         'unidad' => 'kilos',
         'vencimiento' => $faker->date($format = 'Y-m-d', $max = 'now'),
         'activo' => true,
+        'categoria_id'=>$faker->numberBetween($min = 1, $max = 10),
+        'marca_id'=>$faker->numberBetween($min = 1, $max = 5),
     ];
 });
 /*

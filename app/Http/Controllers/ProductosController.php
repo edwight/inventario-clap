@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Producto;
-
+use App\Models\Producto;
+use App\Models\Proveedor;
+use App\Models\Categoria;
+use App\Models\Marca;
 class ProductosController extends Controller
 {
     /**
@@ -14,8 +16,9 @@ class ProductosController extends Controller
      */
     public function index()
     {
-        $productos =  Producto::all();
-        return view('Producto.index',['productos'=>$productos]);
+        $productos =  Producto::orderBy('id','desc')->get();
+        $proveedores = Proveedor::all();
+        return view('Producto.index',['productos'=>$productos,'proveedores'=>$proveedores]);
     }
 
     /**
@@ -25,7 +28,9 @@ class ProductosController extends Controller
      */
     public function create()
     {
-        return 'create';
+        $categorias = Categoria::all();
+        $marcas = Marca::all();
+        return view('Producto.create',compact('categorias','marcas'));
     }
 
     /**
@@ -36,10 +41,32 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
-        $detalles = new Detalle;
-        //$detalles->
-        //$detalles->save();
+        //return $request->();
+        
+
+        $producto = new Producto;
+        $producto->nombre = $request->input('nombre');
+        $producto->precio = $request->input('precio');
+        //stock mayor que cero
+        $producto->stock = $request->input('stock');
+        $producto->unidad = $request->input('unidad');
+        $producto->activo = true;
+
+        $categoria_id = $request->input('categoria');
+        $categoria = Categoria::find($categoria_id);
+        $producto->categoria()->associate($categoria);
+
+        $marca_id = $request->input('marca');
+        $marca = Marca::find($marca_id);
+        $producto->marca()->associate($marca);
+        
+        $producto->save();
+        //$categoria_id = $request->input('categoria');
+        //$categoria = Categoria::find($categoria_id);
+        //$categoria->productos()->save()
+        //$producto->categoria->nombre =$request->input('categoria');
+        //$producto->marca->nombre = $request->input('marca');
+        
 
         return redirect('productos');
     }
@@ -50,9 +77,12 @@ class ProductosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Producto $producto)
+    public function show($id)
     {
-        return $producto;
+        $producto = Producto::find($id);
+        //return $producto->categoria->id;
+        return view('Producto.show',['producto'=>$producto]);
+        //return $producto;
     }
 
     /**
@@ -63,7 +93,10 @@ class ProductosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $producto = Producto::find($id);
+        $categorias = Categoria::all();
+        $marcas = Marca::all();
+        return view('Producto.edit',compact('producto','categorias','marcas'));
     }
 
     /**
@@ -75,7 +108,25 @@ class ProductosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $producto = Producto::find($id);
+        $producto->nombre = $request->input('nombre');
+        $producto->precio = $request->input('precio');
+        //stock mayor que cero
+        $producto->stock = $request->input('stock');
+        $producto->unidad = $request->input('unidad');
+        $producto->activo = true;
+
+        $categoria_id = $request->input('categoria');
+        $categoria = Categoria::find($categoria_id);
+        $producto->categoria()->associate($categoria);
+
+        $marca_id = $request->input('marca');
+        $marca = Marca::find($marca_id);
+        $producto->marca()->associate($marca);
+        
+        $producto->save();
+
+        return redirect('productos');
     }
 
     /**
@@ -84,8 +135,9 @@ class ProductosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Producto $producto)
+    public function destroy($id)
     {
+        $producto = Producto::find($id);
         $producto->delete();
     }
 }

@@ -13,6 +13,10 @@ class DatabaseSeeder extends Seeder
     {
     	//Model::unguard();
         $this->call(UsersTableSeeder::class);
+        $this->call(EntradasTableSeeder::class);
+        $this->call(ProveedorTableSeeder::class);
+        $this->call(CategoriasTableSeeder::class);
+        $this->call(MarcasTableSeeder::class);
         $this->call(ProductosTableSeeder::class);
     }
 }

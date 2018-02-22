@@ -19,6 +19,7 @@ class CreateProductosTable extends Migration
             $table->integer('stock');
             $table->float('precio');
             $table->string('unidad');
+            $table->text('observacion');
             //$table->('vencimineto');
             $table->date('vencimiento');
             $table->boolean('activo')->default(false);

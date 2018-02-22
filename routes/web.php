@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::resource('/users', 'UsersController');
 Route::resource('/productos', 'ProductosController');
 Route::resource('/detalles', 'DetallesController');
-Route::resource('/proveedor', 'ProveedorController');
+Route::resource('/proveedores', 'ProveedorController');
 
 
 Route::get('/users/{id}', function ($id) {

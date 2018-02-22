@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Proveedor;
+use App\Models\Proveedor;
 class ProveedorController extends Controller
 {
     /**
@@ -48,7 +48,15 @@ class ProveedorController extends Controller
      */
     public function show($id)
     {
-        //
+        $proveedor = Proveedor::find($id);
+
+       // foreach ($proveedor->productos as $task) {
+            //obteniendo los datos de un task específico
+        //    echo $task->nombre;
+
+       // }
+        return view('Proveedor.show',['proveedor'=>$proveedor]);
+        //return $producto;
     }
 
     /**

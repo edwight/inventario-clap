@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProveedorsTable extends Migration
+class CreateProductoProveedorTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,14 @@ class CreateProveedorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('proveedors', function (Blueprint $table) {
+        Schema::create('producto_proveedor', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
+            $table->integer('entrada_id');
+            $table->integer('producto_id');
+            $table->integer('proveedor_id');
+            
+            $table->dateTime('fecha_entrada');
+            $table->dateTime('fecha_salida');
             $table->timestamps();
         });
     }
@@ -27,6 +32,6 @@ class CreateProveedorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('proveedors');
+        Schema::dropIfExists('entrada_producto');
     }
 }

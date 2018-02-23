@@ -15,10 +15,12 @@ class CreateProductoProveedorTable extends Migration
     {
         Schema::create('producto_proveedor', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('entrada_id');
+            $table->integer('detalle_id');
             $table->integer('producto_id');
             $table->integer('proveedor_id');
-            
+            $table->integer('user_id');
+            $table->boolean('estado');//salida = 0 entrada 1
+
             $table->dateTime('fecha_entrada');
             $table->dateTime('fecha_salida');
             $table->timestamps();

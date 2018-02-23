@@ -1,4 +1,4 @@
-extends('template.layout')
+@extends('template.layout')
     @section('title', 'Home')
     @section('content')
         <div class="container">
@@ -150,7 +150,7 @@ extends('template.layout')
                             <h3 style="margin-bottom: 25px; text-align: center;">Formulario de Envio </h3>
                             <button class="mybutton btn btn-primary" type="submit">Enviar</button>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="nombre de quien recibe" required>
+                                <input type="text" class="form-control" id="name" name="user" placeholder="nombre de quien recibe" required>
                             </div>
                             <div class="form-group">
                                 <label for="sel1">Selecione un proveedor:</label>
@@ -452,13 +452,6 @@ extends('template.layout')
 </div>
     @endsection
     @section('script')
-    <script>
-        let elemento = new Vue({
-            el: '.app',
-            data: {
-                
-                menu:0
-            }
-        })
-    </script>
+
+
     @endsection

@@ -48,7 +48,7 @@ class ProveedorController extends Controller
      */
     public function show($id)
     {
-        $proveedor = Proveedor::find($id);
+        $proveedor = Proveedor::find($id); //User::with('Favourite')->get();
 
        // foreach ($proveedor->productos as $task) {
             //obteniendo los datos de un task específico

@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Producto;
-use App\Proveedor;
-use App\Detalle;
+use App\Models\Producto;
+use App\Models\Proveedor;
+use App\Models\Detalle;
+use App\Models\Entrada;
 class DetallesController extends Controller
 {
     /**
@@ -17,7 +18,7 @@ class DetallesController extends Controller
     {
         $productos =  Producto::all();
         $proveedores = Proveedor::all();
-        return view('Producto.index',['productos'=>$productos,'proveedores'=>$proveedores]);
+        return view('Detalles.index',['productos'=>$productos,'proveedores'=>$proveedores]);
     }
 
     /**
@@ -40,15 +41,22 @@ class DetallesController extends Controller
     {
         //return $request->all();
         
-        $detalle = new Detalle;
-        $detalle->cantidad = 23;
-        $detalle->unidad = 'kilos';
-        $detalle->enviado = true;
+
+        //$detalle = new Detalle;
+        //$detalle->cantidad = $request->input('cantidad');
+        //$detalle->unidad = 'kilos';
+        //$detalle->entrada->user-> = true;
         //$detalle->proveedor = 3;
+        //$detalle->save();
+
+        $detalle = new Detalle;
+        $detalle->user_id = $request->input('user');
+        $detalle->proveedor_id = $request->input('proveedor');
+        $detalle->enviado = true;
         $detalle->save();
 
-        $proveedor_id =$request->input('proveedor');
-        //$proveedor = Proveedor::find($proveedor_id);
+        //$proveedor_id =$request->input('proveedor');
+        $proveedor = Proveedor::find($proveedor_id);
         //$detalle->proveedor->save($proveedor);
 
         $productos = $request->input('productos_ids');
@@ -60,7 +68,7 @@ class DetallesController extends Controller
             foreach ($productos as $productosId) 
             {
                 $producto = Producto::find($productosId);
-                $detalle->productos()->attach($producto);
+                $proveedor->productos()->attach($producto);
             }
         }
 

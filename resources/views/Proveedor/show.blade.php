@@ -242,7 +242,7 @@
                                       nombre:{{$producto->nombre}}
                                       - unidad:{{$producto->unidad}}
                                       -stock:{{$producto->stock}}
-                                      <span class="btn btn-success">-entrada:{{$producto->entradas}}</span>
+                                      <span class="btn btn-success">-entrada:</span>
                                       <span class="btn btn-primary">-salida</span>
                                       
                                     </p>

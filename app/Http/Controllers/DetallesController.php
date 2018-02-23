@@ -50,6 +50,7 @@ class DetallesController extends Controller
 
         $detalle = new Detalle;
         //$detalle->user_id = $request->input('user');
+        $proveedor = $request->input('proveedor');
         $detalle->proveedor_id = $request->input('proveedor');
         $detalle->cantidad = 24;
         $detalle->enviado = true;
@@ -72,7 +73,7 @@ class DetallesController extends Controller
             foreach ($productos as $productosId) 
             {
                 $producto = Producto::find($productosId);
-                $detalle->productos()->attach($producto);
+                $detalle->productos()->attach($producto,['proveedor_id' => $proveedor]);
             }
         }
         

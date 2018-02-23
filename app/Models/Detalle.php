@@ -12,7 +12,7 @@ class Detalle extends Model
     ];
     public function productos(){
     	return $this->belongsToMany('App\Models\Producto', 'producto_proveedor') 
-    	->withPivot('producto_id');
+    	->withPivot('proveedor_id');
     }
     
 }

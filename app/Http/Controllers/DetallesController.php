@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\Proveedor;
 use App\Models\Detalle;
-use App\Models\Entrada;
 class DetallesController extends Controller
 {
     /**
@@ -50,28 +49,33 @@ class DetallesController extends Controller
         //$detalle->save();
 
         $detalle = new Detalle;
-        $detalle->user_id = $request->input('user');
+        //$detalle->user_id = $request->input('user');
         $detalle->proveedor_id = $request->input('proveedor');
+        $detalle->cantidad = 24;
         $detalle->enviado = true;
         $detalle->save();
 
         //$proveedor_id =$request->input('proveedor');
-        $proveedor = Proveedor::find($proveedor_id);
+        //$proveedor = Proveedor::find($proveedor_id);
         //$detalle->proveedor->save($proveedor);
 
+
         $productos = $request->input('productos_ids');
+
+
         //return $productos;
         //$detalle->hasAnyProduct($productos_id);
 
+        
         if (isset($productos)) 
         {
             foreach ($productos as $productosId) 
             {
                 $producto = Producto::find($productosId);
-                $proveedor->productos()->attach($producto);
+                $detalle->productos()->attach($producto);
             }
         }
-
+        
         return redirect('detalles');
     }
 

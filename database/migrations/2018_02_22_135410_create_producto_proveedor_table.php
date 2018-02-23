@@ -19,7 +19,7 @@ class CreateProductoProveedorTable extends Migration
             $table->integer('producto_id');
             $table->integer('proveedor_id');
             $table->integer('user_id');
-            $table->boolean('estado');//salida = 0 entrada 1
+            //$table->boolean('estado');//salida = 0 entrada 1
 
             $table->dateTime('fecha_entrada');
             $table->dateTime('fecha_salida');

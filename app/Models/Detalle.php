@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Detalle extends Model
 {
-    protected $table = 'producto_proveedor';
+    //protected $table = 'producto_proveedor';
     protected $fillable = [
-        'cantadad'
+        'cantadad','cantidad','inventario_id','recibido','enviado'
     ];
     public function productos(){
-    	return $this->belongsToMany('App\Producto', 'producto_proveedor');
+    	return $this->belongsToMany('App\Models\Producto', 'producto_proveedor') 
+    	->withPivot('producto_id');
     }
     
 }

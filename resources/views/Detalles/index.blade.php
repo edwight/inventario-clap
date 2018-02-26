@@ -257,7 +257,7 @@
                                           <td class="view-message">{{$producto->stock}}</td>
                                           <td class="view-message inbox-small-cells"></td>
                                           <td class="view-message text-right">
-                                            <a href="/update" class="btn btn-success">Detalles</a>
+                                            <a href="{{asset('detalles/'.$producto->id)}}" class="btn btn-success">Detalles</a>
                                            </td>
                                           <td class="view-message text-right">March 15</td>
                                       </tr>

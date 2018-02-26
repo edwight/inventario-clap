@@ -11,7 +11,7 @@ class Proveedor extends Model
     ];
     public function productos(){
     	return $this->belongsToMany('App\Models\Producto', 'producto_proveedor') 
-    	->withPivot('producto_id');
+    	->withPivot('producto_id','enviado','recibido');
     }
     public function users(){
     	return $this->hasMany('App\Models\User');

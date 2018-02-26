@@ -200,209 +200,215 @@
                                  </li>
                              </ul>
                          </div>
-                         
-                          <!-- componente show-->
-                          <div class="col-lg-12 col-sm-12">
-                            <div class="card hovercard">
-                                <div class="card-background">
-                                    <img class="card-bkimg" alt="" src="http://lorempixel.com/100/100/people/9/">
-                                    <!-- http://lorempixel.com/850/280/people/9/ -->
-                                </div>
-                                <div class="useravatar">
-                                    <img alt="" src="http://lorempixel.com/100/100/people/9/">
-                                </div>
-                                <div class="card-info"> <span class="card-title">{{$proveedor->nombre}}</span>
-
-                                </div>
-                            </div>
-                            <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
-                                <div class="btn-group" role="group">
-                                    <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                        <div class="hidden-xs">Formulario</div>
-                                    </button>
-                                </div>
-                                <div class="btn-group" role="group">
-                                    <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-                                        <div class="hidden-xs">Producto</div>
-                                    </button>
-                                </div>
-                                <div class="btn-group" role="group">
-                                    <button type="button" id="favorites" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-                                        <div class="hidden-xs">Reporte</div>
-                                    </button>
-                                </div>
-                                <div class="btn-group" role="group">
-                                    <button type="button" id="following" class="btn btn-default" href="#tab4" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                                        <div class="hidden-xs">Usuarios</div>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="well">
-                              <div class="tab-content">
-                                <div class="tab-pane fade in active" id="tab1">
-                                  <h3>formulario </h3>
-                                   @include('template.formulario',['proveedores'=>$proveedores])
-
-                                </div>
-                                <div class="tab-pane fade in" id="tab2">
-                                  <h3>productos lista</h3>
-                                  <table class="table table-inbox table-hover">
-                                    <tbody>
-                                    @foreach($proveedor->productos as $producto)
-                                    <tr class="">
-                                    <td class="inbox-small-cells">
-                                      @if($producto->pivot->recibido)
-                                      <i class="fa fa-arrow-circle-left"></i>
-                                      @endif
-                                      @if($producto->pivot->enviado)
-                                      <i class="fa fa-arrow-circle-right"></i>
-                                      @endif
-                                      
-                                    </td>
-                                     
-                                    <td class="view-message dont-show">{{$producto->nombre}}</td>
-                                    <td class="view-message">{{$producto->stock}}</td>
-                                    <td class="view-message inbox-small-cells"></td>
-                                      <td class="view-message text-right">
-                                        <a href="{{asset('detalles/'.$producto->id)}}" class="btn btn-success">Detalles</a>
-                                       </td>
-                                      <td class="view-message text-right">March 15</td>
-                                    </tr>
-                                      @endforeach
-                                    </tbody>
-                                  </table>
-                                </div>
-
-                                <div class="tab-pane fade in" id="tab3">
-                                  <h3>This is tab 2</h3>
-                                </div>
-                                <div class="tab-pane fade in" id="tab4">
-                                  @foreach($proveedor->users as $users)
-                                    <p>
-                                      nombre:{{$users->name}}
-                                      - correo:{{$users->email}}
-                                    </p>
-                                  @endforeach
-                                </div>
-                              </div>
-                            </div>
-                            
-                            </div>
-                          <!-- end componente show -->
-
+                         <!-- componente lista-item -->
+                         <div class="receipt-main col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+            <div class="row">
+          <div class="receipt-header">
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="receipt-left">
+              <img class="img-responsive" alt="iamgurdeeposahan" src="http://bootsnipp.com/img/avatars/bcf1c0d13e5500875fdd5a7e8ad9752ee16e7462.jpg" style="width: 71px; border-radius: 43px;">
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+            <div class="receipt-right">
+              <h5>TechiTouch.</h5>
+              <p>+91 12345-6789 <i class="fa fa-phone"></i></p>
+              <p>info@gmail.com <i class="fa fa-envelope-o"></i></p>
+              <p>Australia <i class="fa fa-location-arrow"></i></p>
+            </div>
+          </div>
+        </div>
+            </div>
+      
+      <div class="row">
+        <div class="receipt-header receipt-header-mid">
+          <div class="col-xs-8 col-sm-8 col-md-8 text-left">
+            <div class="receipt-right">
+              <h5>Gurdeep Singh <small>  |   Lucky Number : 156</small></h5>
+              <p><b>Mobile :</b> +91 12345-6789</p>
+              <p><b>Email :</b> info@gmail.com</p>
+              <p><b>Address :</b> Australia</p>
+            </div>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-4">
+            <div class="receipt-left">
+              <h1>Receipt</h1>
+            </div>
+          </div>
+        </div>
+            </div>
+      
+            <div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-md-9">Payment for August 2016</td>
+                            <td class="col-md-3"><i class="fa fa-inr"></i> 15,000/-</td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-9">Payment for June 2016</td>
+                            <td class="col-md-3"><i class="fa fa-inr"></i> 6,00/-</td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-9">Payment for May 2016</td>
+                            <td class="col-md-3"><i class="fa fa-inr"></i> 35,00/-</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">
+                            <p>
+                                <strong>Total Amount: </strong>
+                            </p>
+                            <p>
+                                <strong>Late Fees: </strong>
+                            </p>
+              <p>
+                                <strong>Payable Amount: </strong>
+                            </p>
+              <p>
+                                <strong>Balance Due: </strong>
+                            </p>
+              </td>
+                            <td>
+                            <p>
+                                <strong><i class="fa fa-inr"></i> 65,500/-</strong>
+                            </p>
+                            <p>
+                                <strong><i class="fa fa-inr"></i> 500/-</strong>
+                            </p>
+              <p>
+                                <strong><i class="fa fa-inr"></i> 1300/-</strong>
+                            </p>
+              <p>
+                                <strong><i class="fa fa-inr"></i> 9500/-</strong>
+                            </p>
+              </td>
+                        </tr>
+                        <tr>
+                           
+                            <td class="text-right"><h2><strong>Total: </strong></h2></td>
+                            <td class="text-left text-danger"><h2><strong><i class="fa fa-inr"></i> 31.566/-</strong></h2></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+      
+      <div class="row">
+        <div class="receipt-header receipt-header-mid receipt-footer">
+          <div class="col-xs-8 col-sm-8 col-md-8 text-left">
+            <div class="receipt-right">
+              <p><b>Date :</b> 15 Aug 2016</p>
+              <h5 style="color: rgb(140, 140, 140);">Thank you for your business!</h5>
+            </div>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-4">
+            <div class="receipt-left">
+              <h1>Signature</h1>
+            </div>
+          </div>
+        </div>
+            </div>
+      
+        </div> 
+                          <!-- end componente lista-item -->
                       </div>
                   </aside>
               </div>
 </div>
-
     @endsection
-
     @section('style')
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
       <style type="text/css">
-        /* USER PROFILE PAGE */
-         .card {
-            margin-top: 20px;
-            padding: 30px;
-            background-color: rgba(214, 224, 226, 0.2);
-            -webkit-border-top-left-radius:5px;
-            -moz-border-top-left-radius:5px;
-            border-top-left-radius:5px;
-            -webkit-border-top-right-radius:5px;
-            -moz-border-top-right-radius:5px;
-            border-top-right-radius:5px;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-        }
-        .card.hovercard {
-            position: relative;
-            padding-top: 0;
-            overflow: hidden;
-            text-align: center;
-            background-color: #fff;
-            background-color: rgba(255, 255, 255, 1);
-        }
-        .card.hovercard .card-background {
-            height: 130px;
-        }
-        .card-background img {
-            -webkit-filter: blur(25px);
-            -moz-filter: blur(25px);
-            -o-filter: blur(25px);
-            -ms-filter: blur(25px);
-            filter: blur(25px);
-            margin-left: -100px;
-            margin-top: -200px;
-            min-width: 130%;
-        }
-        .card.hovercard .useravatar {
-            position: absolute;
-            top: 15px;
-            left: 0;
-            right: 0;
-        }
-        .card.hovercard .useravatar img {
-            width: 100px;
-            height: 100px;
-            max-width: 100px;
-            max-height: 100px;
-            -webkit-border-radius: 50%;
-            -moz-border-radius: 50%;
-            border-radius: 50%;
-            border: 5px solid rgba(255, 255, 255, 0.5);
-        }
-        .card.hovercard .card-info {
-            position: absolute;
-            bottom: 14px;
-            left: 0;
-            right: 0;
-        }
-        .card.hovercard .card-info .card-title {
-            padding:0 5px;
-            font-size: 20px;
-            line-height: 1;
-            color: #262626;
-            background-color: rgba(255, 255, 255, 0.1);
-            -webkit-border-radius: 4px;
-            -moz-border-radius: 4px;
-            border-radius: 4px;
-        }
-        .card.hovercard .card-info {
-            overflow: hidden;
-            font-size: 12px;
-            line-height: 20px;
-            color: #737373;
-            text-overflow: ellipsis;
-        }
-        .card.hovercard .bottom {
-            padding: 0 20px;
-            margin-bottom: 17px;
-        }
-        .btn-pref .btn {
-            -webkit-border-radius:0 !important;
-        }
-
-
+        .text-danger strong {
+        color: #9f181c;
+    }
+    .receipt-main {
+      background: #ffffff none repeat scroll 0 0;
+      border-bottom: 12px solid #333333;
+      border-top: 12px solid #9f181c;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      padding: 40px 30px !important;
+      position: relative;
+      box-shadow: 0 1px 21px #acacac;
+      color: #333333;
+      font-family: open sans;
+    }
+    .receipt-main p {
+      color: #333333;
+      font-family: open sans;
+      line-height: 1.42857;
+    }
+    .receipt-footer h1 {
+      font-size: 15px;
+      font-weight: 400 !important;
+      margin: 0 !important;
+    }
+    .receipt-main::after {
+      background: #414143 none repeat scroll 0 0;
+      content: "";
+      height: 5px;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: -13px;
+    }
+    .receipt-main thead {
+      background: #414143 none repeat scroll 0 0;
+    }
+    .receipt-main thead th {
+      color:#fff;
+    }
+    .receipt-right h5 {
+      font-size: 16px;
+      font-weight: bold;
+      margin: 0 0 7px 0;
+    }
+    .receipt-right p {
+      font-size: 12px;
+      margin: 0px;
+    }
+    .receipt-right p i {
+      text-align: center;
+      width: 18px;
+    }
+    .receipt-main td {
+      padding: 9px 20px !important;
+    }
+    .receipt-main th {
+      padding: 13px 20px !important;
+    }
+    .receipt-main td {
+      font-size: 13px;
+      font-weight: initial !important;
+    }
+    .receipt-main td p:last-child {
+      margin: 0;
+      padding: 0;
+    } 
+    .receipt-main td h2 {
+      font-size: 20px;
+      font-weight: 900;
+      margin: 0;
+      text-transform: uppercase;
+    }
+    .receipt-header-mid .receipt-left h1 {
+      font-weight: 100;
+      margin: 34px 0 0;
+      text-align: right;
+      text-transform: uppercase;
+    }
+    .receipt-header-mid {
+      margin: 24px 0;
+      overflow: hidden;
+    }
+    
+    #container {
+      background-color: #dcdcdc;
+    }
       </style>
-      <style>
-        .fa.fa-arrow-circle-left{
-          color:red;
-        }
-        .fa.fa-arrow-circle-right{
-          color:green;
-        }
-      </style>
-    @endsection
-    @section('script')
-    <script>
-      $(document).ready(function() {
-      $(".container .lg-side .btn-pref .btn").click(function () {
-          $(".container .lg-side .btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
-          // $(".tab").addClass("active"); // instead of this do the below 
-          $(this).removeClass("btn-default").addClass("btn-primary");   
-      });
-      });
-    </script>
     @endsection

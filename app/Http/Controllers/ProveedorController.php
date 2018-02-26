@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Proveedor;
+use App\Models\Producto;
 class ProveedorController extends Controller
 {
     /**
@@ -49,13 +50,14 @@ class ProveedorController extends Controller
     public function show($id)
     {
         $proveedor = Proveedor::find($id); //User::with('Favourite')->get();
-
+        $proveedores = Proveedor::all();
+        $productos = Producto::all();
        // foreach ($proveedor->productos as $task) {
             //obteniendo los datos de un task específico
         //    echo $task->nombre;
 
        // }
-        return view('Proveedor.show',['proveedor'=>$proveedor]);
+        return view('Proveedor.show',compact('proveedor','proveedores','productos'));
         //return $producto;
     }
 

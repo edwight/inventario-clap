@@ -76,11 +76,11 @@
                       <!-- componente nav -->
                       <ul class="inbox-nav inbox-divider">
                           <li class="active">
-                              <a href="{{asset('/users')}}"><i class="fa fa-inbox"></i> User <span class="label label-danger pull-right">2</span></a>
+                              <a href="{{asset('/users')}}"><i class="fa fa-inbox"></i> Usuarios <span class="label label-danger pull-right">2</span></a>
 
                           </li>
                           <li>
-                              <a href="{{asset('/reporte')}}"><i class="fa fa-envelope-o"></i>Reporte</a>
+                              <a href="{{asset('/reporte')}}"><i class="fa fa-envelope-o"></i>Centros Clap</a>
                           </li>
                           <li>
                               <a href="#"><i class="fa fa-bookmark-o"></i> Important</a>
@@ -203,7 +203,7 @@
                          <!-- componente lista-item -->
                           <div class="row">
 						    <div class="form-area col-lg-12">  
-						        <form role="form">
+
 						        <br style="clear:both">
 				                    <h3 style="margin-bottom: 25px; text-align: center;">Contact Form</h3>
 				    				<div class="form-group">
@@ -235,8 +235,7 @@
                       <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>                    
                   </div>
 						            
-						        <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Submit Form</button>
-						        </form>
+						       
 						    </div>
 						</div>
                           <!-- end componente lista-item -->

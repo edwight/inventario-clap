@@ -77,7 +77,7 @@ class DetallesController extends Controller
             }
         }
         
-        return redirect('detalles');
+        return redirect('proveedores/1');
     }
 
     /**
@@ -88,7 +88,7 @@ class DetallesController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('Detalles.show');
     }
 
     /**

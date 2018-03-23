@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Request\ProveedorDetalleRequest;
 use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\Proveedor;
 use App\Models\Detalle;
+
 class DetallesController extends Controller
 {
     /**
@@ -38,29 +39,30 @@ class DetallesController extends Controller
      */
     public function store(Request $request)
     {
-        //return $request->all();
+        return $request->all();
         
-
-        //$detalle = new Detalle;
-        //$detalle->cantidad = $request->input('cantidad');
-        //$detalle->unidad = 'kilos';
-        //$detalle->entrada->user-> = true;
-        //$detalle->proveedor = 3;
-        //$detalle->save();
-
+        $stock = $request->input('stock');
+        $productosId = $request->input('productos_ids');
+        $total = 0;
+        /*
+        if (isset($productosId)) {
+            foreach ($productosId as $key) {
+                $total = $total + $stock[$key-1];
+            }
+        }
+        */
+        $proveedor_id =  $request->input('proveedor');
         $detalle = new Detalle;
-        //$detalle->user_id = $request->input('user');
-        $proveedor = $request->input('proveedor');
-        $detalle->proveedor_id = $request->input('proveedor');
-        $detalle->cantidad = 24;
+        //$detalle->stock = $total;//total de productos enviados
         $detalle->enviado = true;
+        $detalle->proveedor_id = $proveedor_id;
         $detalle->save();
 
         //$proveedor_id =$request->input('proveedor');
         //$proveedor = Proveedor::find($proveedor_id);
         //$detalle->proveedor->save($proveedor);
 
-
+        //return $proveedor->id;
         $productos = $request->input('productos_ids');
 
 
@@ -73,11 +75,16 @@ class DetallesController extends Controller
             foreach ($productos as $productosId) 
             {
                 $producto = Producto::find($productosId);
-                $detalle->productos()->attach($producto,['proveedor_id' => $proveedor]);
+                //$producto->decrement('stock_pivot',$stock[$productosId-1]);//resta la cantidad de producto enviada 
+                $detalle->productos()->attach($producto,[
+                    'proveedor_id' => $proveedor_id,
+                    'stock_pivot' => $stock[$productosId-1]
+                ]);
             }
         }
         
-        return redirect('proveedores/1');
+        return redirect('proveedores/'.$proveedor_id);
+
     }
 
     /**
@@ -88,7 +95,8 @@ class DetallesController extends Controller
      */
     public function show($id)
     {
-        return view('Detalles.show');
+        $detalle = Detalle::find($id);
+        return view('Detalles.show',compact('detalle'));
     }
 
     /**

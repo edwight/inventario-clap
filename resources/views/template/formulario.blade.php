@@ -1,5 +1,5 @@
 
-  <form method="post" action="/detalles">
+  <form method="post" action="/detalles" id="formulario">
 
     <div class="inbox-body">
         <!-- formulario -->
@@ -12,8 +12,8 @@
             <label for="sel1">Selecione un proveedor:</label>
             <select class="form-control" id="sel1" name="proveedor" required>
             <option> </option>
-                @foreach($proveedores as $proveedor)
-                    <option value="{{$proveedor->id}}">{{$proveedor->nombre}}</option>
+                @foreach($proveedores as $proveedors)
+                    <option value="{{$proveedors->id}}">{{$proveedors->nombre}}</option>
                 @endforeach
             </select>
         </div>
@@ -24,19 +24,19 @@
         </div>
       <table class="table table-inbox table-hover">
         <tbody>
-          @foreach($productos as $producto)
+          @foreach($proveedor->productos as $producto)
         <tr class="">
           <td class="inbox-small-cells">
               <input type="checkbox" name="productos_ids[]" value="{{$producto->id}}" class="mail-checkbox">
           </td>
           <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
           <td class="view-message dont-show">{{$producto->nombre}}</td>
-          <td class="view-message">{{$producto->stock}}</td>
+          <td class="view-message"><input type="number" name="stock[]" min="0" max="{{$producto->pivot->stock_pivot}}" value="0"></td>
           <td class="view-message inbox-small-cells"></td>
+          <td class="view-message text-right">March 15</td>
           <td class="view-message text-right">
             <a href="{{asset('detalles/'.$producto->id)}}" class="btn btn-success">Detalles</a>
            </td>
-          <td class="view-message text-right">March 15</td>
         </tr>
           @endforeach
         </tbody>

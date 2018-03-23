@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('home');
 });
-
+Route::resource('/menu', 'MenuController');
 Route::resource('/users', 'UsersController');
 Route::resource('/productos', 'ProductosController');
 Route::resource('/detalles', 'DetallesController');
@@ -24,3 +24,7 @@ Route::resource('/proveedores', 'ProveedorController');
 Route::get('/users/{id}', function ($id) {
     return 'usuarios/'.$id;
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+

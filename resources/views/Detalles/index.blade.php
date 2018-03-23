@@ -2,6 +2,7 @@
     @section('title', 'Home')
     @section('content')
         <div class="container">
+           @include('template.error')
  <div class="mail-box">
                   <aside class="sm-side">
                       <!-- componente user-head -->

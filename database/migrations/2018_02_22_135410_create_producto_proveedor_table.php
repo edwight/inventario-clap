@@ -19,7 +19,7 @@ class CreateProductoProveedorTable extends Migration
             $table->integer('producto_id');
             $table->integer('proveedor_id');
             $table->integer('user_id');
-            
+            $table->integer('stock_pivot');
             $table->boolean('enviado')->default(false);
             $table->boolean('recibido')->default(false);
 

@@ -1,433 +1,540 @@
 @extends('template.layout')
     @section('title', 'Home')
     @section('content')
-        <div class="container">
- <div class="mail-box">
-                  <aside class="sm-side">
-                      <!-- componente user-head -->
-                      <div class="user-head">
-                          <a class="inbox-avatar" href="javascript:;">
-                              <img  width="64" hieght="60" src="http://bootsnipp.com/img/avatars/ebeb306fd7ec11ab68cbcaa34282158bd80361a7.jpg">
-                          </a>
-                          <div class="user-name">
-                              <h5><a href="#">Alireza Zare</a></h5>
-                              <span><a href="#">Info.Ali.Pci@Gmail.com</a></span>
-                          </div>
-                          <a class="mail-dropdown pull-right" href="javascript:;">
-                              <i class="fa fa-chevron-down"></i>
-                          </a>
-                      </div>
-                      <!-- end componente user-head -->
-                      <div class="inbox-body">
-                          <a href="#myModal" data-toggle="modal"  title="Compose"    class="btn btn-compose">
-                              Nuevo
-                          </a>
-                          <!-- Modal -->
-                          <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade" style="display: none;">
-                              <div class="modal-dialog">
-                                  <div class="modal-content">
-                                      <div class="modal-header">
-                                          <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-                                          <h4 class="modal-title">Compose</h4>
-                                      </div>
-                                      <div class="modal-body">
-                                          <form role="form" class="form-horizontal">
-                                              <div class="form-group">
-                                                  <label class="col-lg-2 control-label">To</label>
-                                                  <div class="col-lg-10">
-                                                      <input type="text" placeholder="" id="inputEmail1" class="form-control">
-                                                  </div>
-                                              </div>
-                                              <div class="form-group">
-                                                  <label class="col-lg-2 control-label">Cc / Bcc</label>
-                                                  <div class="col-lg-10">
-                                                      <input type="text" placeholder="" id="cc" class="form-control">
-                                                  </div>
-                                              </div>
-                                              <div class="form-group">
-                                                  <label class="col-lg-2 control-label">Subject</label>
-                                                  <div class="col-lg-10">
-                                                      <input type="text" placeholder="" id="inputPassword1" class="form-control">
-                                                  </div>
-                                              </div>
-                                              <div class="form-group">
-                                                  <label class="col-lg-2 control-label">Message</label>
-                                                  <div class="col-lg-10">
-                                                      <textarea rows="10" cols="30" class="form-control" id="" name=""></textarea>
-                                                  </div>
-                                              </div>
+    <div>
+    <!-- #Left Sidebar ==================== -->
+    @include('layouts/menu')
 
-                                              <div class="form-group">
-                                                  <div class="col-lg-offset-2 col-lg-10">
-                                                      <span class="btn green fileinput-button">
-                                                        <i class="fa fa-plus fa fa-white"></i>
-                                                        <span>Attachment</span>
-                                                        <input type="file" name="files[]" multiple="">
-                                                      </span>
-                                                      <button class="btn btn-send" type="submit">Send</button>
-                                                  </div>
-                                              </div>
-                                          </form>
-                                      </div>
-                                  </div><!-- /.modal-content -->
-                              </div><!-- /.modal-dialog -->
-                          </div><!-- /.modal -->
-                      </div>
-                      <!-- componente nav -->
-                      <ul class="inbox-nav inbox-divider">
-                          <li class="active">
-                              <a href="{{asset('/users')}}"><i class="fa fa-inbox"></i> User <span class="label label-danger pull-right">2</span></a>
-
-                          </li>
-                          <li>
-                              <a href="{{asset('/reporte')}}"><i class="fa fa-envelope-o"></i>Reporte</a>
-                          </li>
-                          <li>
-                              <a href="#"><i class="fa fa-bookmark-o"></i> Important</a>
-                          </li>
-                          <li>
-                              <a href="#"><i class=" fa fa-external-link"></i> Drafts <span class="label label-info pull-right">30</span></a>
-                          </li>
-                          <li>
-                              <a href="#"><i class=" fa fa-trash-o"></i> Trash</a>
-                          </li>
-                      </ul>
-                      <ul class="nav nav-pills nav-stacked labels-info inbox-divider">
-                          <li> <h4>Labels</h4> </li>
-                          <li> <a href="#"> <i class=" fa fa-sign-blank text-danger"></i> Work </a> </li>
-                          <li> <a href="#"> <i class=" fa fa-sign-blank text-success"></i> Design </a> </li>
-                          <li> <a href="#"> <i class=" fa fa-sign-blank text-info "></i> Family </a>
-                          </li><li> <a href="#"> <i class=" fa fa-sign-blank text-warning "></i> Friends </a>
-                          </li><li> <a href="#"> <i class=" fa fa-sign-blank text-primary "></i> Office </a>
-                          </li>
-                      </ul>
-                      <ul class="nav nav-pills nav-stacked labels-info ">
-                          <li> <h4>Buddy online</h4> </li>
-                          <li> <a href="#"> <i class=" fa fa-circle text-success"></i>Alireza Zare <p>I do not think</p></a>  </li>
-                          <li> <a href="#"> <i class=" fa fa-circle text-danger"></i>Dark Coders<p>Busy with coding</p></a> </li>
-                          <li> <a href="#"> <i class=" fa fa-circle text-muted "></i>Mentaalist <p>I out of control</p></a>
-                          </li><li> <a href="#"> <i class=" fa fa-circle text-muted "></i>H3s4m<p>I am not here</p></a>
-                          </li><li> <a href="#"> <i class=" fa fa-circle text-muted "></i>Dead man<p>I do not think</p></a>
-                          </li>
-                      </ul>
-                      <!-- end componente nav -->
-                      <div class="inbox-body text-center">
-                          <div class="btn-group">
-                              <a class="btn mini btn-primary" href="javascript:;">
-                                  <i class="fa fa-plus"></i>
-                              </a>
-                          </div>
-                          <div class="btn-group">
-                              <a class="btn mini btn-success" href="javascript:;">
-                                  <i class="fa fa-phone"></i>
-                              </a>
-                          </div>
-                          <div class="btn-group">
-                              <a class="btn mini btn-info" href="javascript:;">
-                                  <i class="fa fa-cog"></i>
-                              </a>
-                          </div>
-                      </div>
-
-                  </aside>
-                  <aside class="lg-side">
-                      <div class="inbox-head">
-                          <h3>Lista de Producto</h3>
-                          <form action="#" class="pull-right position">
-                            <div class="form-group">
-                            </div>
-                              <div class="input-append">
-                                  <input type="text" class="sr-input" placeholder="Buscar">
-                                  <button class="btn sr-btn" type="button"><i class="fa fa-search"></i></button>
-                              </div>
-                          </form>
-                      </div>
-                      <div class="inbox-body">
+    <!-- #Main ============================ -->
+    <div class="page-container">
+    <!-- ### $Topbar ### -->
+    @include('layouts/header_nav')
+    <main class='main-content bgc-grey-100'>
+          <div id='mainContent'>
+            <div class="full-container">
+              <div class="email-app">
+                <div class="email-side-nav remain-height ov-h">
+                  <div class="h-100 layers">
+                    <div class="p-20 bgc-grey-100 layer w-100">
+                      <a href="/compose" class="btn btn-danger btn-block">New Message</a>
+                    </div>
+                    <div class="bdT bdB">
+                        <input type="text" class="form-control m-0 bdw-0 pY-15 pX-20" placeholder="Search...">
+                    </div>
+                    <div class="scrollable pos-r bdT layer w-100 fxg-1">
+                    
+                      <ul class="p-20 nav flex-column">
                         
-                         <div class="mail-option">
-                             <div class="chk-all">
-                                 <input type="checkbox" class="mail-checkbox mail-group-checkbox">
-                                 <div class="btn-group">
-                                     <a data-toggle="dropdown" href="#" class="btn mini all" aria-expanded="false">
-                                         All
-                                         <i class="fa fa-angle-down "></i>
-                                     </a>
-                                     <ul class="dropdown-menu">
-                                         <li><a href="#"> None</a></li>
-                                         <li><a href="#"> Read</a></li>
-                                         <li><a href="#"> Unread</a></li>
-                                     </ul>
-                                 </div>
-                             </div>
-
-                             <div class="btn-group">
-                                 <a data-original-title="Refresh" data-placement="top" data-toggle="dropdown" href="#" class="btn mini tooltips">
-                                     <i class=" fa fa-refresh"></i>
-                                 </a>
-                             </div>
-                             <div class="btn-group hidden-phone">
-                                 <a data-toggle="dropdown" href="#" class="btn mini blue" aria-expanded="false">
-                                     More
-                                     <i class="fa fa-angle-down "></i>
-                                 </a>
-                                 <ul class="dropdown-menu">
-                                     <li><a href="#"><i class="fa fa-pencil"></i> Mark as Read</a></li>
-                                     <li><a href="#"><i class="fa fa-ban"></i> Spam</a></li>
-                                     <li class="divider"></li>
-                                     <li><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
-                                 </ul>
-                             </div>
-                             <div class="btn-group">
-                                 <a data-toggle="dropdown" href="#" class="btn mini blue">
-                                     Move to
-                                     <i class="fa fa-angle-down "></i>
-                                 </a>
-                                 <ul class="dropdown-menu">
-                                     <li><a href="#"><i class="fa fa-pencil"></i> Mark as Read</a></li>
-                                     <li><a href="#"><i class="fa fa-ban"></i> Spam</a></li>
-                                     <li class="divider"></li>
-                                     <li><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
-                                 </ul>
-                             </div>
-                             
-                             <ul class="unstyled inbox-pagination">
-                                 <li><span>1-50 of 234</span></li>
-                                 <li>
-                                     <a class="np-btn" href="#"><i class="fa fa-angle-left  pagination-left"></i></a>
-                                 </li>
-                                 <li>
-                                     <a class="np-btn" href="#"><i class="fa fa-angle-right pagination-right"></i></a>
-                                 </li>
-                             </ul>
-                         </div>
-                         <!-- componente lista-item -->
-                         
-                              <table class="table table-inbox table-hover">
-                                <tbody>
-                                  <tr class="unread">
-                                      <td class="inbox-small-cells">
-                                          <input type="checkbox" class="mail-checkbox">
-                                      </td>
-                                      <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                      <td class="view-message  dont-show">PHPClass</td>
-                                      <td class="view-message ">Added a new class: Login Class Fast Site</td>
-                                      <td class="view-message  inbox-small-cells"><i class="fa fa-paperclip"></i></td>
-                                      <td class="view-message  text-right">9:27 AM</td>
-                                  </tr>
-                                  <tr class="unread">
-                                      <td class="inbox-small-cells">
-                                          <input type="checkbox" class="mail-checkbox">
-                                      </td>
-                                      <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                      <td class="view-message dont-show">Google Webmaster </td>
-                                      <td class="view-message">Improve the search presence of WebSite</td>
-                                      <td class="view-message inbox-small-cells"></td>
-                                      <td class="view-message text-right">March 15</td>
-                                  </tr>
-                                  @foreach($productos as $producto)
-                                  <tr class="">
-                                      <td class="inbox-small-cells">
-                                          <input type="checkbox" name="productos_ids[]" value="{{$producto->id}}" class="mail-checkbox">
-                                      </td>
-                                      <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                      <td class="view-message dont-show">{{$producto->nombre}}</td>
-                                      <td class="view-message">{{$producto->stock}}</td>
-                                      <td class="view-message inbox-small-cells"></td>
-                                      <td class="view-message text-right">
-                                        <a href="{{asset('productos/'.$producto->id)}}" class="btn btn-success">Detalles</a>
-                                        <a href="{{asset('productos/'.$producto->id.'/edit')}}" class="btn btn-info">Editar</a>
-                                         <a href="{{asset('productos/'.$producto->id)}}" class="btn btn-danger">Eliminar</a>
-                                       </td>
-                                      <td class="view-message text-right">March 15</td>
-                                  </tr>
-                                  @endforeach
-                                  <tr class="">
-                                      <td class="inbox-small-cells">
-                                          <input type="checkbox" class="mail-checkbox">
-                                      </td>
-                                      <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                      <td class="view-message dont-show">Tim Reid, S P N</td>
-                                      <td class="view-message">Boost Your Website Traffic</td>
-                                      <td class="view-message inbox-small-cells"></td>
-                                      <td class="view-message text-right">April 01</td>
-                                  </tr>
-                                  <tr class="">
-                                      <td class="inbox-small-cells">
-                                          <input type="checkbox" class="mail-checkbox">
-                                      </td>
-                                      <td class="inbox-small-cells"><i class="fa fa-star inbox-started"></i></td>
-                                      <td class="view-message dont-show">Freelancer.com <span class="label label-danger pull-right">urgent</span></td>
-                                      <td class="view-message">Stop wasting your visitors </td>
-                                      <td class="view-message inbox-small-cells"></td>
-                                      <td class="view-message text-right">May 23</td>
-                                  </tr>
-                                  <tr class="">
-                                      <td class="inbox-small-cells">
-                                          <input type="checkbox" class="mail-checkbox">
-                                      </td>
-                                      <td class="inbox-small-cells"><i class="fa fa-star inbox-started"></i></td>
-                                      <td class="view-message dont-show">WOW Slider </td>
-                                      <td class="view-message">New WOW Slider v7.8 - 67% off</td>
-                                      <td class="view-message inbox-small-cells"><i class="fa fa-paperclip"></i></td>
-                                      <td class="view-message text-right">March 14</td>
-                                  </tr>
-                                  <tr class="">
-                                      <td class="inbox-small-cells">
-                                          <input type="checkbox" class="mail-checkbox">
-                                      </td>
-                                      <td class="inbox-small-cells"><i class="fa fa-star inbox-started"></i></td>
-                                      <td class="view-message dont-show">LinkedIn Pulse</td>
-                                      <td class="view-message">The One Sign Your Co-Worker Will Stab</td>
-                                      <td class="view-message inbox-small-cells"><i class="fa fa-paperclip"></i></td>
-                                      <td class="view-message text-right">Feb 19</td>
-                                  </tr>
-                                  <tr class="">
-                                      <td class="inbox-small-cells">
-                                          <input type="checkbox" class="mail-checkbox">
-                                      </td>
-                                      <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                      <td class="view-message dont-show">Drupal Community<span class="label label-success pull-right">megazine</span></td>
-                                      <td class="view-message view-message">Welcome to the Drupal Community</td>
-                                      <td class="view-message inbox-small-cells"></td>
-                                      <td class="view-message text-right">March 04</td>
-                                  </tr>
-                                  <tr class="">
-                                      <td class="inbox-small-cells">
-                                          <input type="checkbox" class="mail-checkbox">
-                                      </td>
-                                      <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                      <td class="view-message dont-show">Facebook</td>
-                                      <td class="view-message view-message">Somebody requested a new password </td>
-                                      <td class="view-message inbox-small-cells"></td>
-                                      <td class="view-message text-right">June 13</td>
-                                  </tr>
-                                  <tr class="">
-                                      <td class="inbox-small-cells">
-                                          <input type="checkbox" class="mail-checkbox">
-                                      </td>
-                                      <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                      <td class="view-message dont-show">Skype <span class="label label-info pull-right">family</span></td>
-                                      <td class="view-message view-message">Password successfully changed</td>
-                                      <td class="view-message inbox-small-cells"></td>
-                                      <td class="view-message text-right">March 24</td>
-                                  </tr>
-                                  <tr class="">
-                                      <td class="inbox-small-cells">
-                                          <input type="checkbox" class="mail-checkbox">
-                                      </td>
-                                      <td class="inbox-small-cells"><i class="fa fa-star inbox-started"></i></td>
-                                      <td class="view-message dont-show">Google+</td>
-                                      <td class="view-message">alireza, do you know</td>
-                                      <td class="view-message inbox-small-cells"></td>
-                                      <td class="view-message text-right">March 09</td>
-                                  </tr>
-                                  <tr class="">
-                                      <td class="inbox-small-cells">
-                                          <input type="checkbox" class="mail-checkbox">
-                                      </td>
-                                      <td class="inbox-small-cells"><i class="fa fa-star inbox-started"></i></td>
-                                      <td class="dont-show">Zoosk </td>
-                                      <td class="view-message">7 new singles we think you'll like</td>
-                                      <td class="view-message inbox-small-cells"><i class="fa fa-paperclip"></i></td>
-                                      <td class="view-message text-right">May 14</td>
-                                  </tr>
-                                  <tr class="">
-                                      <td class="inbox-small-cells">
-                                          <input type="checkbox" class="mail-checkbox">
-                                      </td>
-                                      <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                      <td class="view-message dont-show">LinkedIn </td>
-                                      <td class="view-message">Alireza: Nokia Networks, System Group and </td>
-                                      <td class="view-message inbox-small-cells"><i class="fa fa-paperclip"></i></td>
-                                      <td class="view-message text-right">February 25</td>
-                                  </tr>
-                                  <tr class="">
-                                      <td class="inbox-small-cells">
-                                          <input type="checkbox" class="mail-checkbox">
-                                      </td>
-                                      <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                      <td class="dont-show">Facebook</td>
-                                      <td class="view-message view-message">Your account was recently logged into</td>
-                                      <td class="view-message inbox-small-cells"></td>
-                                      <td class="view-message text-right">March 14</td>
-                                  </tr>
-                                  <tr class="">
-                                      <td class="inbox-small-cells">
-                                          <input type="checkbox" class="mail-checkbox">
-                                      </td>
-                                      <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                      <td class="view-message dont-show">Twitter</td>
-                                      <td class="view-message">Your Twitter password has been changed</td>
-                                      <td class="view-message inbox-small-cells"></td>
-                                      <td class="view-message text-right">April 07</td>
-                                  </tr>
-                                  <tr class="">
-                                      <td class="inbox-small-cells">
-                                          <input type="checkbox" class="mail-checkbox">
-                                      </td>
-                                      <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                      <td class="view-message dont-show">InternetSeer Website Monitoring</td>
-                                      <td class="view-message">http://golddesigner.org/ Performance Report</td>
-                                      <td class="view-message inbox-small-cells"></td>
-                                      <td class="view-message text-right">July 14</td>
-                                  </tr>
-                                  <tr class="">
-                                      <td class="inbox-small-cells">
-                                          <input type="checkbox" class="mail-checkbox">
-                                      </td>
-                                      <td class="inbox-small-cells"><i class="fa fa-star inbox-started"></i></td>
-                                      <td class="view-message dont-show">AddMe.com</td>
-                                      <td class="view-message">Submit Your Website to the AddMe Business Directory</td>
-                                      <td class="view-message inbox-small-cells"></td>
-                                      <td class="view-message text-right">August 10</td>
-                                  </tr>
-                                  <tr class="">
-                                      <td class="inbox-small-cells">
-                                          <input type="checkbox" class="mail-checkbox">
-                                      </td>
-                                      <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                      <td class="view-message dont-show">Terri Rexer, S P N</td>
-                                      <td class="view-message view-message">Forget Google AdWords: Un-Limited Clicks fo</td>
-                                      <td class="view-message inbox-small-cells"><i class="fa fa-paperclip"></i></td>
-                                      <td class="view-message text-right">April 14</td>
-                                  </tr>
-                                  <tr class="">
-                                      <td class="inbox-small-cells">
-                                          <input type="checkbox" class="mail-checkbox">
-                                      </td>
-                                      <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                      <td class="view-message dont-show">Bertina </td>
-                                      <td class="view-message">IMPORTANT: Don't lose your domains!</td>
-                                      <td class="view-message inbox-small-cells"><i class="fa fa-paperclip"></i></td>
-                                      <td class="view-message text-right">June 16</td>
-                                  </tr>
-                                  <tr class="">
-                                      <td class="inbox-small-cells">
-                                          <input type="checkbox" class="mail-checkbox">
-                                      </td>
-                                      <td class="inbox-small-cells"><i class="fa fa-star inbox-started"></i></td>
-                                      <td class="view-message dont-show">Laura Gaffin, S P N </td>
-                                      <td class="view-message">Your Website On Google (Higher Rankings Are Better)</td>
-                                      <td class="view-message inbox-small-cells"></td>
-                                      <td class="view-message text-right">August 10</td>
-                                  </tr>
-                                  <tr class="">
-                                      <td class="inbox-small-cells">
-                                          <input type="checkbox" class="mail-checkbox">
-                                      </td>
-                                      <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                      <td class="view-message dont-show">Facebook</td>
-                                      <td class="view-message view-message">Alireza Zare Login faild</td>
-                                      <td class="view-message inbox-small-cells"><i class="fa fa-paperclip"></i></td>
-                                      <td class="view-message text-right">feb 14</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                          <!-- end componente lista-item -->
+                        <li class="nav-item">
+                          <a href="javascript:void(0)" class="nav-link c-grey-800 cH-blue-500 active">
+                            <div class="peers ai-c jc-sb">
+                                <div class="checkbox checkbox-circle checkbox-info peers ai-c">
+                                    <input type="checkbox" id="inputCall1" name="inputCheckboxesCall" class="peer">
+                                    <label for="inputCall1" class=" peers peer-greed js-sb ai-c"></label>
+                                </div>
+                              <div class="peer peer-greed">
+                                <i class="mR-10 ti-email"></i>
+                                <span>Postes</span>
+                              </div>
+                              <div class="peer">
+                                <span class="badge badge-pill bgc-deep-purple-50 c-deep-purple-700">+99</span>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="" class="nav-link c-grey-800 cH-blue-500">
+                            <div class="peers ai-c jc-sb">
+                                <div class="checkbox checkbox-circle checkbox-info peers ai-c">
+                                    <input type="checkbox" id="inputCall1" name="inputCheckboxesCall" class="peer">
+                                    <label for="inputCall1" class=" peers peer-greed js-sb ai-c"></label>
+                                </div>
+                              <div class="peer peer-greed">
+                                <i class="mR-10 ti-share"></i>
+                                <span>Salsas</span>
+                              </div>
+                              <div class="peer">
+                                <span class="badge badge-pill bgc-green-50 c-green-700">12</span>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="" class="nav-link c-grey-800 cH-blue-500">
+                            <div class="peers ai-c jc-sb">
+                                <div class="checkbox checkbox-circle checkbox-info peers ai-c">
+                                    <input type="checkbox" id="inputCall1" name="inputCheckboxesCall" class="peer">
+                                    <label for="inputCall1" class=" peers peer-greed js-sb ai-c"></label>
+                                </div>
+                              <div class="peer peer-greed">
+                                <i class="mR-10 ti-star"></i>
+                                <span>Jugos</span>
+                              </div>
+                              <div class="peer">
+                                <span class="badge badge-pill bgc-blue-50 c-blue-700">3</span>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="" class="nav-link c-grey-800 cH-blue-500">
+                            <div class="peers ai-c jc-sb">
+                                <div class="checkbox checkbox-circle checkbox-info peers ai-c">
+                                    <input type="checkbox" id="inputCall1" name="inputCheckboxesCall" class="peer">
+                                    <label for="inputCall1" class=" peers peer-greed js-sb ai-c"></label>
+                                </div>
+                              <div class="peer peer-greed">
+                                <i class="mR-10 ti-file"></i>
+                                <span>Sopas</span>
+                              </div>
+                              <div class="peer">
+                                <span class="badge badge-pill bgc-amber-50 c-amber-700">5</span>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="" class="nav-link c-grey-800 cH-blue-500">
+                            <div class="peers ai-c jc-sb">
+                              <div class="peer peer-greed">
+                                <i class="mR-10 ti-alert"></i>
+                                <span>Spam</span>
+                              </div>
+                              <div class="peer">
+                                <span class="badge badge-pill bgc-red-50 c-red-700">1</span>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="" class="nav-link c-grey-800 cH-blue-500">
+                            <div class="peers ai-c jc-sb">
+                                <div class="checkbox checkbox-circle checkbox-info peers ai-c">
+                                    <input type="checkbox" id="inputCall1" name="inputCheckboxesCall" class="peer">
+                                    <label for="inputCall1" class=" peers peer-greed js-sb ai-c"></label>
+                                </div>
+                              <div class="peer peer-greed">
+                                <i class="mR-10 ti-trash"></i>
+                                <span>Trash</span>
+                              </div>
+                              <div class="peer">
+                                <span class="badge badge-pill bgc-red-50 c-red-700">+99</span>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              <div class="email-wrapper row remain-height bgc-white ov-h">
+                <div class="email-list h-100 layers">
+                  <div class="layer w-100">
+                    <div class="bgc-grey-100 peers ai-c jc-sb p-20 fxw-nw">
+                      <div class="peer">
+                        <div class="btn-group" role="group">
+                          <button type="button" class="email-side-toggle d-n@md+ btn bgc-white bdrs-2 mR-3 cur-p">
+                            <i class="ti-menu"></i>
+                          </button>
+                          <button type="button" class="btn bgc-white bdrs-2 mR-3 cur-p">
+                            <i class="ti-folder"></i>
+                          </button>
+                          <button type="button" class="btn bgc-white bdrs-2 mR-3 cur-p">
+                            <i class="ti-tag"></i>
+                          </button>
+                          <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn cur-p bgc-white no-after dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="ti-more-alt"></i>
+                            </button>
+                            <ul class="dropdown-menu fsz-sm" aria-labelledby="btnGroupDrop1">
+                              <li>
+                                <a href="" class="d-b td-n pY-5 pX-10 bgcH-grey-100 c-grey-700">
+                                  <i class="ti-trash mR-10"></i>
+                                  <span>Delete</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="" class="d-b td-n pY-5 pX-10 bgcH-grey-100 c-grey-700">
+                                  <i class="ti-alert mR-10"></i>
+                                  <span>Mark as Spam</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="" class="d-b td-n pY-5 pX-10 bgcH-grey-100 c-grey-700">
+                                  <i class="ti-star mR-10"></i>
+                                  <span>Star</span>
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
                       </div>
-                  </aside>
+                      <div class="peer">
+                        <div class="btn-group" role="group">
+                          <button type="button" class="fsz-xs btn bgc-white bdrs-2 mR-3 cur-p">
+                            <i class="ti-angle-left"></i>
+                          </button>
+                          <button type="button" class="fsz-xs btn bgc-white bdrs-2 mR-3 cur-p">
+                            <i class="ti-angle-right"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="layer w-100">
+                    <div class="bdT bdB">
+                      <input type="text" class="form-control m-0 bdw-0 pY-15 pX-20" placeholder="Search...">
+                    </div>
+                  </div>
+                  <div class="layer w-100 fxg-1 scrollable pos-r">
+                    <div class="">
+                      <div class="email-list-item peers fxw-nw p-20 bdB bgcH-grey-100 cur-p">
+                        <div class="peer mR-10">
+                          <div class="checkbox checkbox-circle checkbox-info peers ai-c">
+                            <input type="checkbox" id="inputCall1" name="inputCheckboxesCall" class="peer">
+                            <label for="inputCall1" class=" peers peer-greed js-sb ai-c"></label>
+                          </div>
+                        </div>
+                        <div class="peer peer-greed ov-h">
+                          <div class="peers ai-c">
+                            <div class="peer peer-greed">
+                              <h6>John Doe</h6>
+                            </div>
+                            <div class="peer">
+                              <small>1 min ago</small>
+                            </div>
+                          </div>
+                          <h5 class="fsz-def tt-c c-grey-900">title goes here</h5>
+                          <span class="whs-nw w-100 ov-h tov-e d-b">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</span>
+                        </div>
+                      </div>
+                      <div class="email-list-item peers fxw-nw p-20 bdB bgcH-grey-100 cur-p">
+                        <div class="peer mR-10">
+                          <div class="checkbox checkbox-circle checkbox-info peers ai-c">
+                            <input type="checkbox" id="inputCall1" name="inputCheckboxesCall" class="peer">
+                            <label for="inputCall1" class=" peers peer-greed js-sb ai-c"></label>
+                          </div>
+                        </div>
+                        <div class="peer peer-greed ov-h">
+                          <div class="peers ai-c">
+                            <div class="peer peer-greed">
+                              <h6>John Doe</h6>
+                            </div>
+                            <div class="peer">
+                              <small>1 min ago</small>
+                            </div>
+                          </div>
+                          <h5 class="fsz-def tt-c c-grey-900">title goes here</h5>
+                          <span class="whs-nw w-100 ov-h tov-e d-b">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</span>
+                        </div>
+                      </div>
+                      <div class="email-list-item peers fxw-nw p-20 bdB bgcH-grey-100 cur-p">
+                        <div class="peer mR-10">
+                          <div class="checkbox checkbox-circle checkbox-info peers ai-c">
+                            <input type="checkbox" id="inputCall1" name="inputCheckboxesCall" class="peer">
+                            <label for="inputCall1" class=" peers peer-greed js-sb ai-c"></label>
+                          </div>
+                        </div>
+                        <div class="peer peer-greed ov-h">
+                          <div class="peers ai-c">
+                            <div class="peer peer-greed">
+                              <h6>John Doe</h6>
+                            </div>
+                            <div class="peer">
+                              <small>1 min ago</small>
+                            </div>
+                          </div>
+                          <h5 class="fsz-def tt-c c-grey-900">title goes here</h5>
+                          <span class="whs-nw w-100 ov-h tov-e d-b">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</span>
+                        </div>
+                      </div>
+                      <div class="email-list-item peers fxw-nw p-20 bdB bgcH-grey-100 cur-p">
+                        <div class="peer mR-10">
+                          <div class="checkbox checkbox-circle checkbox-info peers ai-c">
+                            <input type="checkbox" id="inputCall1" name="inputCheckboxesCall" class="peer">
+                            <label for="inputCall1" class=" peers peer-greed js-sb ai-c"></label>
+                          </div>
+                        </div>
+                        <div class="peer peer-greed ov-h">
+                          <div class="peers ai-c">
+                            <div class="peer peer-greed">
+                              <h6>John Doe</h6>
+                            </div>
+                            <div class="peer">
+                              <small>1 min ago</small>
+                            </div>
+                          </div>
+                          <h5 class="fsz-def tt-c c-grey-900">title goes here</h5>
+                          <span class="whs-nw w-100 ov-h tov-e d-b">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</span>
+                        </div>
+                      </div>
+                      <div class="email-list-item peers fxw-nw p-20 bdB bgcH-grey-100 cur-p">
+                        <div class="peer mR-10">
+                          <div class="checkbox checkbox-circle checkbox-info peers ai-c">
+                            <input type="checkbox" id="inputCall1" name="inputCheckboxesCall" class="peer">
+                            <label for="inputCall1" class=" peers peer-greed js-sb ai-c"></label>
+                          </div>
+                        </div>
+                        <div class="peer peer-greed ov-h">
+                          <div class="peers ai-c">
+                            <div class="peer peer-greed">
+                              <h6>John Doe</h6>
+                            </div>
+                            <div class="peer">
+                              <small>1 min ago</small>
+                            </div>
+                          </div>
+                          <h5 class="fsz-def tt-c c-grey-900">title goes here</h5>
+                          <span class="whs-nw w-100 ov-h tov-e d-b">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</span>
+                        </div>
+                      </div>
+                      <div class="email-list-item peers fxw-nw p-20 bdB bgcH-grey-100 cur-p">
+                        <div class="peer mR-10">
+                          <div class="checkbox checkbox-circle checkbox-info peers ai-c">
+                            <input type="checkbox" id="inputCall1" name="inputCheckboxesCall" class="peer">
+                            <label for="inputCall1" class=" peers peer-greed js-sb ai-c"></label>
+                          </div>
+                        </div>
+                        <div class="peer peer-greed ov-h">
+                          <div class="peers ai-c">
+                            <div class="peer peer-greed">
+                              <h6>John Doe</h6>
+                            </div>
+                            <div class="peer">
+                              <small>1 min ago</small>
+                            </div>
+                          </div>
+                          <h5 class="fsz-def tt-c c-grey-900">title goes here</h5>
+                          <span class="whs-nw w-100 ov-h tov-e d-b">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</span>
+                        </div>
+                      </div>
+                      <div class="email-list-item peers fxw-nw p-20 bdB bgcH-grey-100 cur-p">
+                        <div class="peer mR-10">
+                          <div class="checkbox checkbox-circle checkbox-info peers ai-c">
+                            <input type="checkbox" id="inputCall1" name="inputCheckboxesCall" class="peer">
+                            <label for="inputCall1" class=" peers peer-greed js-sb ai-c"></label>
+                          </div>
+                        </div>
+                        <div class="peer peer-greed ov-h">
+                          <div class="peers ai-c">
+                            <div class="peer peer-greed">
+                              <h6>John Doe</h6>
+                            </div>
+                            <div class="peer">
+                              <small>1 min ago</small>
+                            </div>
+                          </div>
+                          <h5 class="fsz-def tt-c c-grey-900">title goes here</h5>
+                          <span class="whs-nw w-100 ov-h tov-e d-b">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</span>
+                        </div>
+                      </div>
+                      <div class="email-list-item peers fxw-nw p-20 bdB bgcH-grey-100 cur-p">
+                        <div class="peer mR-10">
+                          <div class="checkbox checkbox-circle checkbox-info peers ai-c">
+                            <input type="checkbox" id="inputCall1" name="inputCheckboxesCall" class="peer">
+                            <label for="inputCall1" class=" peers peer-greed js-sb ai-c"></label>
+                          </div>
+                        </div>
+                        <div class="peer peer-greed ov-h">
+                          <div class="peers ai-c">
+                            <div class="peer peer-greed">
+                              <h6>John Doe</h6>
+                            </div>
+                            <div class="peer">
+                              <small>1 min ago</small>
+                            </div>
+                          </div>
+                          <h5 class="fsz-def tt-c c-grey-900">title goes here</h5>
+                          <span class="whs-nw w-100 ov-h tov-e d-b">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</span>
+                        </div>
+                      </div>
+                      <div class="email-list-item peers fxw-nw p-20 bdB bgcH-grey-100 cur-p">
+                        <div class="peer mR-10">
+                          <div class="checkbox checkbox-circle checkbox-info peers ai-c">
+                            <input type="checkbox" id="inputCall1" name="inputCheckboxesCall" class="peer">
+                            <label for="inputCall1" class=" peers peer-greed js-sb ai-c"></label>
+                          </div>
+                        </div>
+                        <div class="peer peer-greed ov-h">
+                          <div class="peers ai-c">
+                            <div class="peer peer-greed">
+                              <h6>John Doe</h6>
+                            </div>
+                            <div class="peer">
+                              <small>1 min ago</small>
+                            </div>
+                          </div>
+                          <h5 class="fsz-def tt-c c-grey-900">title goes here</h5>
+                          <span class="whs-nw w-100 ov-h tov-e d-b">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</span>
+                        </div>
+                      </div>
+                      <div class="email-list-item peers fxw-nw p-20 bdB bgcH-grey-100 cur-p">
+                        <div class="peer mR-10">
+                          <div class="checkbox checkbox-circle checkbox-info peers ai-c">
+                            <input type="checkbox" id="inputCall1" name="inputCheckboxesCall" class="peer">
+                            <label for="inputCall1" class=" peers peer-greed js-sb ai-c"></label>
+                          </div>
+                        </div>
+                        <div class="peer peer-greed ov-h">
+                          <div class="peers ai-c">
+                            <div class="peer peer-greed">
+                              <h6>John Doe</h6>
+                            </div>
+                            <div class="peer">
+                              <small>1 min ago</small>
+                            </div>
+                          </div>
+                          <h5 class="fsz-def tt-c c-grey-900">title goes here</h5>
+                          <span class="whs-nw w-100 ov-h tov-e d-b">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</span>
+                        </div>
+                      </div>
+                      <div class="email-list-item peers fxw-nw p-20 bdB bgcH-grey-100 cur-p">
+                        <div class="peer mR-10">
+                          <div class="checkbox checkbox-circle checkbox-info peers ai-c">
+                            <input type="checkbox" id="inputCall1" name="inputCheckboxesCall" class="peer">
+                            <label for="inputCall1" class=" peers peer-greed js-sb ai-c"></label>
+                          </div>
+                        </div>
+                        <div class="peer peer-greed ov-h">
+                          <div class="peers ai-c">
+                            <div class="peer peer-greed">
+                              <h6>John Doe</h6>
+                            </div>
+                            <div class="peer">
+                              <small>1 min ago</small>
+                            </div>
+                          </div>
+                          <h5 class="fsz-def tt-c c-grey-900">title goes here</h5>
+                          <span class="whs-nw w-100 ov-h tov-e d-b">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</span>
+                        </div>
+                      </div>
+                      <div class="email-list-item peers fxw-nw p-20 bdB bgcH-grey-100 cur-p">
+                        <div class="peer mR-10">
+                          <div class="checkbox checkbox-circle checkbox-info peers ai-c">
+                            <input type="checkbox" id="inputCall1" name="inputCheckboxesCall" class="peer">
+                            <label for="inputCall1" class=" peers peer-greed js-sb ai-c"></label>
+                          </div>
+                        </div>
+                        <div class="peer peer-greed ov-h">
+                          <div class="peers ai-c">
+                            <div class="peer peer-greed">
+                              <h6>John Doe</h6>
+                            </div>
+                            <div class="peer">
+                              <small>1 min ago</small>
+                            </div>
+                          </div>
+                          <h5 class="fsz-def tt-c c-grey-900">title goes here</h5>
+                          <span class="whs-nw w-100 ov-h tov-e d-b">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="email-content h-100">
+                  <div class="h-100 scrollable pos-r">
+                    <div class="bgc-grey-100 peers ai-c jc-sb p-20 fxw-nw d-n@md+">
+                      <div class="peer">
+                        <div class="btn-group" role="group">
+                          <button type="button" class="back-to-mailbox btn bgc-white bdrs-2 mR-3 cur-p">
+                            <i class="ti-angle-left"></i>
+                          </button>
+                          <button type="button" class="btn bgc-white bdrs-2 mR-3 cur-p">
+                            <i class="ti-folder"></i>
+                          </button>
+                          <button type="button" class="btn bgc-white bdrs-2 mR-3 cur-p">
+                            <i class="ti-tag"></i>
+                          </button>
+                          <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn cur-p bgc-white no-after dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="ti-more-alt"></i>
+                            </button>
+                            <ul class="dropdown-menu fsz-sm" aria-labelledby="btnGroupDrop1">
+                              <li>
+                                <a href="" class="d-b td-n pY-5 pX-10 bgcH-grey-100 c-grey-700">
+                                  <i class="ti-trash mR-10"></i>
+                                  <span>Delete</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="" class="d-b td-n pY-5 pX-10 bgcH-grey-100 c-grey-700">
+                                  <i class="ti-alert mR-10"></i>
+                                  <span>Mark as Spam</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="" class="d-b td-n pY-5 pX-10 bgcH-grey-100 c-grey-700">
+                                  <i class="ti-star mR-10"></i>
+                                  <span>Star</span>
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="peer">
+                        <div class="btn-group" role="group">
+                          <button type="button" class="fsz-xs btn bgc-white bdrs-2 mR-3 cur-p">
+                            <i class="ti-angle-left"></i>
+                          </button>
+                          <button type="button" class="fsz-xs btn bgc-white bdrs-2 mR-3 cur-p">
+                            <i class="ti-angle-right"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="email-content-wrapper">
+                      <!-- Header -->
+                      <div class="peers ai-c jc-sb pX-40 pY-30">
+                        <div class="peers peer-greed">
+                          <div class="peer mR-20">
+                            <img class="bdrs-50p w-3r h-3r" alt="" src="https://randomuser.me/api/portraits/men/11.jpg">
+                          </div>
+                          <div class="peer">
+                            <small>Nov, 02 2017</small>
+                            <h5 class="c-grey-900 mB-5">John Doe</h5>
+                            <span>To: email@gmail.com</span>
+                          </div>
+                        </div>
+                        <div class="peer">
+                          <a href="" class="btn btn-danger bdrs-50p p-15 lh-0">
+                            <i class="fa fa-reply"></i>
+                          </a>
+                        </div>
+                      </div>
+
+                      <!-- Content -->
+                      <div class="bdT pX-40 pY-30">
+                        <h4>Title of this email goes here</h4>
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        </p>
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-</div>
+              </div>
+            </div>
+          </div>
+        </main>
+        @include('layouts/footer')
+      </div>
+    </div>
     @endsection
     @section('script')
     <script>
